@@ -21,6 +21,14 @@ class Teams(Base):
    division = Column(String(150))
 
 
+class Players(Base):
+	__tablename__ = 'Players'
+	id = Column(Integer, primary_key=True)
+	name = Column(String(250), nullable=False)
+	status = Column(String(20), nullable=False)
+	position = Column(String(80))
+	team =
+
 engine = create_engine('sqlite:///teamSport.db')
 
 Base.metadata.create_all(engine)
