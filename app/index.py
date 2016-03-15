@@ -3,13 +3,17 @@ from flask import jsonify, url_for, flash
 from teamsdb import User, Teams, Players, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from flask from session as session as login_session
+from flask import session as login_session
 
 
 app = Flask(__name__)
 
+engine = create_engine('sqlite:///teamSport.db')
+Base.metadata.bind = engine
+Db = sessionmaker(bind=engine)
+session = Db()
 
-@app.route('welcome')
+@app.route('/welcome')
 def welcome():
     return "welcome"
 
@@ -42,5 +46,5 @@ def playerInfo():
 
 if __name__ == "__main__":
     app.secret_key = "not yet"
-    app.run(host='0.0.0.0', port=5000)
     app.debug = True
+    app.run(host='0.0.0.0', port=5000)

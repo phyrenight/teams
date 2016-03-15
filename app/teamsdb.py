@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.ext.declarative import declarative declarative_base
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 
@@ -27,11 +27,8 @@ class Players(Base):
 	name = Column(String(250), nullable=False)
 	status = Column(String(20), nullable=False)
 	position = Column(String(80))
-	team =
+	teamName = Column(String(80), ForeignKey('Teams.name'))
 
 engine = create_engine('sqlite:///teamSport.db')
 
 Base.metadata.create_all(engine)
-Base.metadata.bind = engine
-DBsession = sessionmaker(bind=engine)
-session = DBsession()
