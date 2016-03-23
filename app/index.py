@@ -31,8 +31,14 @@ def displayTeams():
 
 @app.route('/teams/<team>')
 def displayTeamInfo(team):
-    teamDetails = session.query(Players).filter_by(name = team).one()
+    teamDetails = session.query(Teams).filter_by(name=team).one()
     return render_template("teamInfo.html", teamDetails = teamDetails)
+
+
+@app.route('/teams/division/<division>/')
+def teamDivision(division):
+	teams = session.query(Teams).filter_by(division=division).all()
+	return render_template("divisionList.html", teams=teams)
 
 @app.route('/teams/<team>/players/')
 def teamPlayers():
@@ -46,4 +52,4 @@ def playerInfo():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0', port=8181)
+    app.run(host='0.0.0.0', port=5000)

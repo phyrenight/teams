@@ -3,7 +3,7 @@
 <main>
    <h1>Division</h1>
    <article>
-   {% for in in teams %}
+   {% for i in teams %}
    <a href="{{url_for('displayTeamInfo', team= i.name)}}">{{i.name}}</a>
    {% endfor %}
    </article>
