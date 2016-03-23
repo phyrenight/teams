@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <main>
+        <h1>Team Details</h1>
+        <article>
+            <h2>{{ teamDetails.name }}</h2>
+            <p>{{ teamDetails.rank }}</p>
+            <a href="{{ url_for('teamDivision', division = teamDetails.division) }}">{{ teamDetails.division }}</a>
+        </article>
+    </main>
+{% endblock %}
