@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+   <h1>Division</h1>
+   <article>
+   {% for in in teams %}
+   <a href="{{url_for('displayTeamInfo', team= i.name)}}">{{i.name}}</a>
+   {% endfor %}
+   </article>
+ </main>
+ {% endblock %}

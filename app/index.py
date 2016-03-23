@@ -30,9 +30,9 @@ def displayTeams():
 
 
 @app.route('/teams/<team>')
-def displayTeamInfo():
-    return "or maybe not"
-
+def displayTeamInfo(team):
+    teamDetails = session.query(Players).filter_by(name = team).one()
+    return render_template("teamInfo.html", teamDetails = teamDetails)
 
 @app.route('/teams/<team>/players/')
 def teamPlayers():
