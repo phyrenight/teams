@@ -28,3 +28,16 @@ session.add(team5)
 session.commit()
 
 # add players
+player1 = Players(name="Ben Parker", status="active", teamName="Cows", position="forward", jerseyNumber= "04")
+session.add(player1)
+
+player2 = Players(name="Ken Smith", status="active", teamName="Cows", position="forward", jerseyNumber= 32)
+session.add(player2)
+
+player3 = Players(name="Pete Kurn", status="active", teamName="beavers", position="center", jerseyNumber= 01)
+session.add(player3)
+
+player4 = Players(name="Pat Marker", status="injured", teamName="cheetahs", position="defender", jerseyNumber= 88)
+session.add(player4)
+
+session.commit()
