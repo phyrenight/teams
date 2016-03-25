@@ -41,12 +41,13 @@ def teamDivision(division):
 	return render_template("divisionList.html", teams=teams)
 
 @app.route('/teams/<team>/players/')
-def teamPlayers():
-    return "and here are your players"
+def teamPlayers(team):
+    players = session.query(Players).filter_by(teamName=team).all()
+    return render_template("teamplayers.html", players=players)
 
 
 @app.route('/teams/<team>/players/<name>')
-def playerInfo():
+def playerInfo(player):
     return "enough info for you"
 
 

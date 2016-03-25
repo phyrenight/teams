@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <article>
+    {% for i in players %}
+      <div>
+        <img src='{{url_for("playerInfo", player=i.id)}} alt="{{i.name}}"'>
+        <h3>{{i.name}}</h3>
+        <a href='{{url_for("displayTeamInfo", team =i.teamName) }}'>
+        <p>Jersey number: {{i.jerseyNumber}}</p>
+        <p>status: <span>{{i.status}}</span></p>
+      </div>
+    {% endfor %}
+  </article>
+</main>
+{% endblock %}
