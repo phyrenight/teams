@@ -46,9 +46,10 @@ def teamPlayers(team):
     return render_template("teamplayers.html", players=players)
 
 
-@app.route('/teams/<team>/players/<name>')
-def playerInfo(player):
-    return "enough info for you"
+@app.route('/teams/<team>/players/<playerName>')
+def playerInfo(team, playerName):
+    player = session.query(Players).filter_by(teamName=team, name=playerName).one()
+    return render_template("playerProfile.html", player=player)
 
 
 if __name__ == "__main__":

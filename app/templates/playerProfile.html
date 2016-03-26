@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <article>
+     <h2>{{player.name}}</h2>
+     <img src="{{player.pic}}" alt="player.name">
+     <a href='{{url_for("displayTeamInfo", team=player.team)}}'>{{player.team}}</a>
+     <p>{{player.jerseyNumber}}</p>
+     <p>status:{{player.status}}</p>
+  </article>
+</main>
+{% endblock %}
