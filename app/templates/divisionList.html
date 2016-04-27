@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
+<!-- crumbs-->
+<div id="crumbs">
+<a href="/welcome">home/</a>
+<a href="">divisions/</a>
+<p>division: {{teams.division}}</p>
+</div>
    <h1>Division</h1>
    <article>
    {% for i in teams %}

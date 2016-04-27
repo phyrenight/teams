@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     <main>
+    <!--crumbs-->
+    <div id="crumbs">
+    <a href="/welcome">home/</a>
+    <a href="/teams">teams/</a>
+    <p>{{teamDetails.name}}</p>
+    </div>
         <h1>Team Details</h1>
         <article>
             <h2>{{ teamDetails.name }}</h2>

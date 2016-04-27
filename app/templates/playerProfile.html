@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
+<!--crumbs-->
+<div id="crumbs">
+<a href="/welcome">Home/</a>
+<a href="/teams">teams/</a>
+<a href='{{url_for("displayTeamInfo",team=player.teamName)}}'>{{player.teamName}}/</a>
+<a href='{{url_for("teamPlayers",team=player.teamName)}}'>{{player.teamName}} player list/</a>
+<p>{{player.name}}</p>
+</div>
   <article>
      <h2>{{player.name}}</h2>
-     <img src="{{player.pic}}" alt="player.name">
+     <img src="{{player.pic}}" title="{{player.name}}">
      <a href='{{url_for("displayTeamInfo", team=player.team)}}'>{{player.team}}</a>
-     <p>{{player.jerseyNumber}}</p>
-     <p>status:{{player.status}}</p>
+     <p>jersey number: {{player.jerseyNumber}}</p>
+     <p>status: <span id="{{player.status}}">{{player.status}}<span></p>
   </article>
 </main>
 {% endblock %}

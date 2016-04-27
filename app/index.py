@@ -13,13 +13,22 @@ Base.metadata.bind = engine
 Db = sessionmaker(bind=engine)
 session = Db()
 
+@app.route('/')
 @app.route('/welcome')
 def welcome():
+    """
+        args:none
+        home screen
+    """
     return "welcome"
 
 
 @app.route('/login')
 def login():
+    """
+        args:none
+        login screen
+    """
     return "login screen"
 
 
@@ -43,12 +52,12 @@ def teamDivision(division):
 @app.route('/teams/<team>/players/')
 def teamPlayers(team):
     players = session.query(Players).filter_by(teamName=team).all()
-    return render_template("teamplayers.html", players=players)
+    return render_template("teamplayers.html", players=players, team=team)
 
 
-@app.route('/teams/<team>/players/<playerName>')
-def playerInfo(team, playerName):
-    player = session.query(Players).filter_by(teamName=team, name=playerName).one()
+@app.route('/teams/<team>/players/<int:id>')
+def playerInfo(team, id):
+    player = session.query(Players).filter_by(player_id=id).one()
     return render_template("playerProfile.html", player=player)
 
 

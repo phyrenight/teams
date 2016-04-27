@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
     <main>
+    <!--crumbs-->
+    <div id="crumbs">
+    <a href="/welcome">Home/</a>
+    <p>teams</p>
+    </div>
 	    <article>
 	        {% for i in teams %}
 		    <a href="{{url_for('displayTeamInfo',team = i.name)}}">{{i.name}}</a>

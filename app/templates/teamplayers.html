@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
+<!--crumbs-->
+<div id="crumbs">
+<a href="/welcome">home/</a>
+<a href="/teams">teams/</a>
+<a href='{{url_for("displayTeamInfo", team=team)}}'>{{team}}/</a>
+<p>players/</p>
+</div>
   <article>
-    {% for i in players %}
+   {% for i in players %}
       <div>
         
-         <a href='{{url_for("playerInfo", team=i.teamName, playerName=i.name)}}'><h3>{{i.name}}</h3></a>
+         <a href='{{url_for("playerInfo", team=i.teamName, id=i.player_id)}}'><h3>{{i.name}}</h3></a>
          <img src='{{i.pic}}' title="{{i.name}}">
-         <p>team:</p>
+         <p>team:{{i.player_id}}</p>
         <a href='{{url_for("displayTeamInfo", team=i.teamName) }}'>{{i.teamName}}</a>
       </div>
     {% endfor %}
